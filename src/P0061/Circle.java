@@ -1,37 +1,28 @@
 package P0061;
 
-public class Circle {
-    protected double radius;
-    protected double perimeter_Circle;
-    protected double Area_Circle;
+public class Circle extends Shape {
+    private double radius;
 
-    public Circle(double radius, double perimeter_Circle, double area_Circle) {
-        this.radius = radius;
-        this.perimeter_Circle = perimeter_Circle;
-        Area_Circle = area_Circle;
-    }
-
-    public double getRadius() {
-        return radius;
-    }
-
-    public void setRadius(double radius) {
+    public Circle(double radius) {
         this.radius = radius;
     }
 
-    public double getPerimeter_Circle() {
-        return perimeter_Circle  = 2 * radius * Math.PI;
+    @Override
+    public double getPerimeter() {
+        return 2 * Math.PI * radius;
     }
 
-    public void setPerimeter_Circle(double perimeter_Circle) {
-        this.perimeter_Circle = perimeter_Circle;
+    @Override
+    public double getArea() {
+        return Math.PI * radius * radius;
     }
 
-    public double getArea_Circle() {
-        return Area_Circle = radius * radius * Math.PI;
-    }
+    @Override
+    public void printResult() {
+        System.out.println("Circle: ");
+        System.out.println("Radius: " + radius);
+        System.out.println("Area: " + getArea());
+        System.out.println("Perimeter: " + getPerimeter());
 
-    public void setArea_Circle(double area_Circle) {
-        Area_Circle = area_Circle;
     }
 }

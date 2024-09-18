@@ -1,57 +1,34 @@
 package P0061;
 
-public class Triangle {
-    protected int side_A;
-    protected int side_B;
-    protected int side_C;
-    protected float perimeter_Triangle;
-    protected double Area_Triangle;
+public class Triangle extends Shape{
+    private double side_A;
+    private double side_B;
+    private double side_C;
 
-    public Triangle(int side_A, int side_B, int side_C, float perimeter_Triangle, double area_Triangle) {
+    public Triangle(double side_A, double side_B, double side_C) {
         this.side_A = side_A;
         this.side_B = side_B;
         this.side_C = side_C;
-        this.perimeter_Triangle = perimeter_Triangle;
-        this.Area_Triangle = area_Triangle;
     }
 
-    public int getSide_A() {
-        return side_A;
+    @Override
+    public double getPerimeter() {
+        return side_A + side_B + side_C;
     }
 
-    public void setSide_A(int side_A) {
-        this.side_A = side_A;
+    @Override
+    public double getArea() {
+        double s = getPerimeter() / 2;
+        return Math.sqrt(s * (s - side_A) * (s - side_B) * (s - side_C));
     }
 
-    public int getSide_B() {
-        return side_B;
-    }
-
-    public void setSide_B(int side_B) {
-        this.side_B = side_B;
-    }
-
-    public int getSide_C() {
-        return side_C;
-    }
-
-    public void setSide_C(int side_C) {
-        this.side_C = side_C;
-    }
-
-    public float getPerimeter_Triangle() {
-        return perimeter_Triangle = side_A + side_B + side_C;
-    }
-
-    public void setPerimeter_Triangle(float perimeter_Triangle) {
-        this.perimeter_Triangle = perimeter_Triangle;
-    }
-
-    public double getArea_Triangle() {
-        return Area_Triangle = Math.sqrt((perimeter_Triangle / 2) * (perimeter_Triangle - side_A) * (perimeter_Triangle - side_B) * (perimeter_Triangle - side_C));
-    }
-
-    public void setArea_Triangle(double area_Triangle) {
-        Area_Triangle = area_Triangle;
+    @Override
+    public void printResult() {
+        System.out.println("Triangle:");
+        System.out.println("Side A: " + side_A);
+        System.out.println("Side B: " + side_B);
+        System.out.println("Side C: " + side_C);
+        System.out.println("Area: " + getArea());
+        System.out.println("Perimeter: " + getPerimeter());
     }
 }

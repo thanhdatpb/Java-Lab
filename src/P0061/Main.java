@@ -38,7 +38,6 @@ public class Main {
 
         Shape triangle = new Triangle(sideA, sideB, sideC);
         triangle.printResult();
-
         scanner.close();
     }
 }

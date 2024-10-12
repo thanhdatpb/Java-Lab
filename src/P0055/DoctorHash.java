@@ -5,6 +5,7 @@ import java.util.HashMap;
 public class DoctorHash {
     private HashMap<String, Doctor> doctors = new HashMap<>();
 
+    //Add Doctor
     public boolean addDoctor (Doctor doctor) throws Exception{
         if(doctor == null) throw new Exception("Data does not exist");
         if(doctors == null) throw new Exception("Database does not exist");
@@ -13,7 +14,7 @@ public class DoctorHash {
         doctors.put(doctor.getCode(), doctor);
         return true;
     }
-
+    //Update Doctor
     public boolean updateDoctor (Doctor doctor) throws Exception{
         if(doctors == null)  throw new Exception("Database does not exist");
         if(doctor == null) throw new Exception("Data does not exist");
@@ -28,7 +29,7 @@ public class DoctorHash {
         return true;
 
     }
-
+    //Delete Doctor
     public boolean deleteDoctor(String code) throws Exception {
         if (doctors == null) throw new Exception("Database does not exist");
         if (!doctors.containsKey(code)) throw new Exception("Doctor code doesn’t exist");
